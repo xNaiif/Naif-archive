@@ -3,7 +3,11 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FileText, Mail, BookOpen } from 'lucide-react'
-import { isValidEmail } from '@/lib/utils'
+
+// Email validation function
+const isValidEmail = (email: string) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
 
 export default function RequestPage() {
   const [formData, setFormData] = useState({
