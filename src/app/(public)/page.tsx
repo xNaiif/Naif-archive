@@ -3,7 +3,20 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, BookOpen, Search, FileText } from 'lucide-react'
-import { MOCK_LEVELS, POPULAR_FILES } from '@/lib/constants'
+
+const MOCK_LEVELS = [
+  { id: 'level-1', name: 'Secondary', description: 'High school materials', courseCount: 10, totalFiles: 150 },
+  { id: 'level-2', name: 'Undergraduate', description: 'University first year', courseCount: 15, totalFiles: 250 },
+  { id: 'level-3', name: 'Advanced', description: 'Upper level courses', courseCount: 8, totalFiles: 180 },
+  { id: 'level-4', name: 'Graduate', description: 'Master level materials', courseCount: 5, totalFiles: 120 },
+]
+
+const POPULAR_FILES = [
+  { title: 'Calculus I Lectures', course: 'Mathematics', category: 'lectures', downloads: 1200 },
+  { title: 'Physics Lab Reports', course: 'Science', category: 'reports', downloads: 890 },
+  { title: 'English Essay Guide', course: 'Literature', category: 'guides', downloads: 756 },
+  { title: 'Chemistry Notes', course: 'Science', category: 'notes', downloads: 645 },
+]
 
 export default function HomePage() {
   return (
@@ -63,7 +76,7 @@ export default function HomePage() {
           >
             <div className="relative aspect-square">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-3xl blur-3xl" />
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 dark:from-blue-900/30 to-purple-100/50 dark:to-purple-900/30 rounded-3xl border border-blue-200/50 dark:border-blue-800/50 flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 dark:from-blue-900/30 to-purple-100/50 dark:to-purple-900/30 rounded-3xl border border-blue-200/50 dark:border-blue-900/50 flex items-center justify-center">
                 <BookOpen className="h-32 w-32 text-blue-600/40" />
               </div>
             </div>
@@ -131,7 +144,7 @@ export default function HomePage() {
                     </div>
                     <p className="text-sm text-muted-600 dark:text-muted-400">{file.course}</p>
                   </div>
-                  <span className={`badge ${`bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300`}`}>{file.category}</span>
+                  <span className={`badge bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300`}>{file.category}</span>
                 </div>
                 <p className="text-xs text-muted-500 mt-4">📥 {file.downloads} downloads</p>
               </motion.div>
