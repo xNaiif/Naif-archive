@@ -1,0 +1,189 @@
+@layer base {
+  * {
+    @apply transition-colors duration-150;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-white dark:bg-muted-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-300 dark:bg-muted-700 rounded-full hover:bg-muted-400 dark:hover:bg-muted-600;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-white dark:bg-muted-900 text-muted-900 dark:text-muted-50 antialiased;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white dark:bg-muted-800 border border-muted-200 dark:border-muted-700 rounded-lg shadow-sm;
+  }
+
+  .card-interactive {
+    @apply card hover:shadow-md hover:border-muted-300 dark:hover:border-muted-600 cursor-pointer transition-all duration-200;
+  }
+
+  .glass {
+    @apply bg-white/80 dark:bg-muted-800/80 backdrop-blur-md border border-muted-200/50 dark:border-muted-700/50;
+  }
+
+  .section {
+    @apply py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-muted-100 dark:bg-muted-800 hover:bg-muted-200 dark:hover:bg-muted-700 text-muted-900 dark:text-muted-50 font-medium px-4 py-2 rounded-lg transition-colors duration-200;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-xs font-medium rounded-full;
+  }
+
+  .input-base {
+    @apply w-full px-3 py-2 bg-white dark:bg-muted-800 border border-muted-300 dark:border-muted-700 rounded-lg text-muted-900 dark:text-muted-50 placeholder-muted-400 dark:placeholder-muted-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
+  }
+
+  .truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .truncate-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  .text-xs {
+    @apply text-[0.75rem] leading-4;
+  }
+
+  .text-sm {
+    @apply text-[0.875rem] leading-5;
+  }
+
+  .text-base {
+    @apply text-[1rem] leading-6;
+  }
+
+  .text-lg {
+    @apply text-[1.125rem] leading-7;
+  }
+
+  .text-xl {
+    @apply text-[1.25rem] leading-8;
+  }
+
+  .text-2xl {
+    @apply text-[1.5rem] leading-9;
+  }
+
+  .text-3xl {
+    @apply text-[1.875rem] leading-[2.25rem];
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.3s ease-out;
+}
+
+.animate-slide-in-down {
+  animation: slideInDown 0.3s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
