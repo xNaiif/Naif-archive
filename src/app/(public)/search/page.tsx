@@ -3,8 +3,20 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Search, Filter, FileText } from 'lucide-react'
-import { SORT_OPTIONS, FILE_CATEGORIES } from '@/lib/constants'
-import { cn } from '@/lib/utils'
+
+const FILE_CATEGORIES = {
+  slides: { label: 'Slides', color: 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300' },
+  solutions: { label: 'Solutions', color: 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300' },
+  assignments: { label: 'Assignments', color: 'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300' },
+  notes: { label: 'Notes', color: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300' },
+  textbooks: { label: 'Textbooks', color: 'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-300' },
+}
+
+const SORT_OPTIONS = [
+  { value: 'relevance', label: 'Relevance' },
+  { value: 'downloads', label: 'Most Downloads' },
+  { value: 'recent', label: 'Most Recent' },
+]
 
 export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState('')
