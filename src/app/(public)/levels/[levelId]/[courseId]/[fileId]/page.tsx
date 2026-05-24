@@ -4,20 +4,17 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowLeft, FileText, Download, Clock, AlertCircle, Share2, Flag } from 'lucide-react'
-import { MOCK_COURSES } from '@/lib/constants'
-import { formatFileSize, formatDate, copyToClipboard } from '@/lib/utils'
 
 export default function FilePage({ params }: { params: { levelId: string; courseId: string; fileId: string } }) {
-  const course = MOCK_COURSES.find((c) => c.id === params.courseId)
   const [reportOpen, setReportOpen] = useState(false)
   const [copied, setCopied] = useState(false)
 
   const mockFile = {
     id: params.fileId,
     name: 'Week 1-2 Complete Lecture Slides',
-    course: course?.name || 'Unknown Course',
+    course: 'Data Structures',
     category: 'slides',
-    size: 2.4,
+    size: '2.4 MB',
     downloads: 145,
     date: '2024-01-08',
     description: 'Comprehensive lecture slides covering Week 1 and Week 2 content. Includes all examples and practice problems discussed in class.',
@@ -29,7 +26,7 @@ export default function FilePage({ params }: { params: { levelId: string; course
   }
 
   const handleCopyLink = async () => {
-    await copyToClipboard(mockFile.url)
+    await navigator.clipboard.writeText(mockFile.url)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
@@ -67,7 +64,7 @@ export default function FilePage({ params }: { params: { levelId: string; course
           <div className="grid md:grid-cols-4 gap-6">
             <div>
               <p className="text-sm text-muted-600 dark:text-muted-400">File Size</p>
-              <p className="font-semibold mt-1">{formatFileSize(mockFile.size * 1024 * 1024)}</p>
+              <p className="font-semibold mt-1">{mockFile.size}</p>
             </div>
             <div>
               <p className="text-sm text-muted-600 dark:text-muted-400">Downloads</p>
@@ -77,7 +74,7 @@ export default function FilePage({ params }: { params: { levelId: string; course
               <p className="text-sm text-muted-600 dark:text-muted-400">Uploaded</p>
               <p className="font-semibold mt-1 flex items-center gap-1">
                 <Clock className="h-4 w-4" />
-                {formatDate(mockFile.date, 'short')}
+                {mockFile.date}
               </p>
             </div>
             <div>
