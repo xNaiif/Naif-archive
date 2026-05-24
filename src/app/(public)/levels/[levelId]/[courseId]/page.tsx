@@ -3,13 +3,17 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowLeft, FileText, Download } from 'lucide-react'
-import { MOCK_COURSES } from '@/lib/constants'
 
 export default function CoursePage({ params }: { params: { levelId: string; courseId: string } }) {
-  const course = MOCK_COURSES.find((c) => c.id === params.courseId)
-
-  if (!course) {
-    return <div>Course not found</div>
+  // Mock course data
+  const course = {
+    id: params.courseId,
+    name: 'Data Structures and Algorithms',
+    code: 'CS-201',
+    description: 'Comprehensive course covering fundamental data structures and algorithmic problem solving.',
+    instructor: 'Dr. Ahmed Hassan',
+    credits: 3,
+    fileCount: 6,
   }
 
   // Mock files for this course
